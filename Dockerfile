@@ -1,6 +1,8 @@
-FROM node:9.11.1-alpine
+FROM nginx:stable-alpine
 
 # install simple http server for serving static content
+RUN apk add --update nginx nodejs
+RUN apk add --update yarn
 RUN yarn global add http-server
 
 # make the 'app' folder the current working directory
