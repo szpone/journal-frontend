@@ -20,7 +20,7 @@ Vue.http.interceptors.push(function (request, next) {
 Vue.http.interceptors.push(interceptors.setup())
 
 // VueRx
-Vue.use(VueRx)
+Vue.use(VueRx);
 
 // eslint-disable-next-line no-new
 new Vue({
