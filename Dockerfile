@@ -23,4 +23,6 @@ RUN yarn run build
 
 EXPOSE 8080
 ADD . /app/
-CMD [ "http-server", "dist" ]
+RUN cp -r dist/* /usr/share/nginx/html
+
+
