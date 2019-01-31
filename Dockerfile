@@ -6,6 +6,7 @@ RUN apk add --update yarn
 RUN yarn global add http-server
 
 # make the 'app' folder the current working directory
+RUN mkdir /app
 WORKDIR /app
 
 # copy both 'package.json' and 'package-lock.json' (if available)
@@ -21,4 +22,5 @@ COPY . .
 RUN yarn run build
 
 EXPOSE 8080
+ADD . /app/
 CMD [ "http-server", "dist" ]
