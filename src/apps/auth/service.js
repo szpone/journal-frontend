@@ -79,8 +79,14 @@ function getCookie (cname) {
   return ''
 }
 
+function registerUser (form) {
+  return Vue.http.post(urls.users.users(), form)
+    .then((response) => { return response.body })
+}
+
 export default {
   login,
   logout,
-  checkSession
+  checkSession,
+  registerUser
 }

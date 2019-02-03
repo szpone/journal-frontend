@@ -15,7 +15,7 @@ const getters = {
   isAuthenticated: (state) => state.authenticated,
   isChecking: (state) => state.checking,
   token: (state) => state.token
-}
+};
 // actions
 const actions = {
   doLogin (
@@ -32,8 +32,8 @@ const actions = {
       })
   },
   doLogout ({ commit }) {
-    authService.logout()
-    commit('loggedOut')
+    authService.logout();
+    commit('loggedOut');
     router.push({
       path: '/login'
     })
@@ -53,22 +53,31 @@ const actions = {
           // Fail silently.
         })
     }
+  },
+
+  registerUser ({ commit }, form) {
+    return authService.registerUser(form)
+      .then(() => {
+        router.push({
+          path: '/login'
+        })
+      })
   }
 }
 // mutations
 const mutations = {
   loggedIn (state, obj) {
-    state.token = obj.token
-    state.user = obj.user
-    state.loading = false
-    state.error = null
+    state.token = obj.token;
+    state.user = obj.user;
+    state.loading = false;
+    state.error = null;
     state.authenticated = true
   },
   loggedOut (state) {
-    state.token = ''
-    state.user = null
-    state.loading = false
-    state.error = null
+    state.token = '';
+    state.user = null;
+    state.loading = false;
+    state.error = null;
     state.authenticated = false
   },
   setChecking (state, value) {

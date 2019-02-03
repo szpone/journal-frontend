@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build -t journalfrontend .
+docker build -t nikolanna/bgjournal-ui .
 

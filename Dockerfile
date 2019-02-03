@@ -21,8 +21,10 @@ COPY . .
 # build app for production with minification
 RUN yarn run build
 
+FROM nginx:stable-alpine
+COPY --from=0 /app/dist/ /usr/share/nginx/html/
 EXPOSE 8080
-ADD . /app/
-RUN cp -r dist/* /usr/share/nginx/html
+
+
 
 
