@@ -1,4 +1,4 @@
-const URL = '//localhost:8000/'
+const URL = '/'
 const API = 'api/'
 
 export default {
