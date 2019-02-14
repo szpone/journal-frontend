@@ -27,7 +27,7 @@ const actions = {
         commit('loggedIn', obj)
       }).then(() => {
         const { nextUrl } = router.history.current.query
-        router.push({ path: nextUrl || '/' }
+        router.push({ path: nextUrl || '/dashboard' }
         )
       })
   },

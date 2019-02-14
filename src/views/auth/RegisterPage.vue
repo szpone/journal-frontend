@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Registration</h3>
-    <form @submit.prevent="onSubmit()">
+    <form @submit.prevent="onSubmit">
       <label for="username">Username</label>
       <input type="text" id="username" v-model="form.username"/>
       <label for="email">Email</label>
@@ -35,7 +35,7 @@
           email: this.form.email,
           password: this.form.password
         }
-        this.$store.dispatch('auth/registerUser', formToSend).then(() => console.log('dupa'))
+        this.$store.dispatch('auth/registerUser', formToSend)
 
       }
     }

@@ -5,11 +5,15 @@ import App from './App'
 import router from './router'
 import store from './store'
 import interceptors from '@/config/interceptors'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.config.productionTip = false
 
 // VueResource
 Vue.use(VueResource)
+
+// Bootstrap
+Vue.use(BootstrapVue)
 
 Vue.http.interceptors.push(function (request, next) {
   // Read token from localStorage and set it as authorization header.

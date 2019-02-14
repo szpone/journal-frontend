@@ -1,4 +1,5 @@
 import { boardgamesService } from '@/services'
+import router from '@/router'
 
 const state = {
   boardgames: [],
@@ -29,8 +30,13 @@ const actions = {
       .then((response) => commit('setUsers', response))
   },
 
-  postMatch (form) {
+  postMatch ({ commit }, form) {
     return boardgamesService.postMatch(form)
+      .then(() => {
+        router.push({
+          path: '/dashboard'
+        })
+      })
   }
 }
 // mutations

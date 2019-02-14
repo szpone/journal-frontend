@@ -11,6 +11,7 @@
         <option v-for="user in users" v-bind:value="user.id">{{ user.username }}</option>
       </select>
 
+
       <select v-model="form.board_game" name="board_game">
         <option v-for="game in boardgames" v-bind:value="game.id">{{ game.name }}</option>
       </select>
@@ -56,6 +57,7 @@ export default {
         victory: this.form.victory,
         scenario: this.form.scenario,
       }
+      console.log(formToSend)
       this.$store.dispatch('boardgames/postMatch', formToSend)
     }
   }
