@@ -1,8 +1,12 @@
 <template>
   <div>
-    <ul v-for="match in matches">
-      <li>{{match}}</li>
+    <ul v-for="match in matches" v-if="matches" :key="match.id">
+      <li>{{ match }}</li>
     </ul>
+
+    <div v-else>
+      No matches!
+    </div>
 
     <router-link to="/add-match" tag="button">Add match</router-link>
 

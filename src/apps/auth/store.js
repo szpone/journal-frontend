@@ -1,5 +1,5 @@
-import { authService } from '@/services'
-import router from '@/router'
+import { authService } from 'services'
+import router from 'router'
 
 const state = {
   token: '',
@@ -7,7 +7,7 @@ const state = {
   loading: true,
   error: null,
   authenticated: false,
-  checking: false,
+  checking: false
 }
 
 // getters
@@ -15,7 +15,7 @@ const getters = {
   isAuthenticated: (state) => state.authenticated,
   isChecking: (state) => state.checking,
   token: (state) => state.token
-};
+}
 // actions
 const actions = {
   doLogin (
@@ -27,13 +27,13 @@ const actions = {
         commit('loggedIn', obj)
       }).then(() => {
         const { nextUrl } = router.history.current.query
-        router.push({ path: nextUrl || '/' }
+        router.push({ path: nextUrl || '/dashboard' }
         )
       })
   },
   doLogout ({ commit }) {
-    authService.logout();
-    commit('loggedOut');
+    authService.logout()
+    commit('loggedOut')
     router.push({
       path: '/login'
     })
@@ -67,17 +67,17 @@ const actions = {
 // mutations
 const mutations = {
   loggedIn (state, obj) {
-    state.token = obj.token;
-    state.user = obj.user;
-    state.loading = false;
-    state.error = null;
+    state.token = obj.token
+    state.user = obj.user
+    state.loading = false
+    state.error = null
     state.authenticated = true
   },
   loggedOut (state) {
-    state.token = '';
-    state.user = null;
-    state.loading = false;
-    state.error = null;
+    state.token = ''
+    state.user = null
+    state.loading = false
+    state.error = null
     state.authenticated = false
   },
   setChecking (state, value) {
