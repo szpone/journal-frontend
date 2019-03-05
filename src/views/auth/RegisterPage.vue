@@ -1,16 +1,35 @@
 <template>
   <div>
-    <h3>Registration</h3>
-    <form @submit.prevent="onSubmit">
-      <label for="username">Username</label>
-      <input type="text" id="username" v-model="form.username"/>
-      <label for="email">Email</label>
-      <input type="email" id="email" v-model="form.email"/>
-      <label for="password">Password</label>
-      <input type="password" id="password" v-model="form.password"/>
+    <div class="row">
+      <div class="col-lg-2">
+        <h3>Registration</h3>
+      </div>
+    </div>
+    <div class="row">
+      <form @submit.prevent="onSubmit">
+        <div class="col-lg-3">
+          <b-form-group label="Username" label-for="username">
+            <b-form-input type="text" id="username" v-model="form.username"/>
+          </b-form-group>
+        </div>
 
-      <input type="submit" name="submit" />
-    </form>
+        <div class="col-lg-3">
+          <b-form-group label="Email" label-for="email">
+            <b-form-input type="email" id="email" v-model="form.email"/>
+          </b-form-group>
+        </div>
+
+        <div class="col-lg-3">
+          <b-form-group label="Password" label-for="password">
+            <input type="password" id="password" v-model="form.password"/>
+          </b-form-group>
+
+        </div>
+        <div class="col-lg-3">
+          <input type="submit" name="submit"/>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
