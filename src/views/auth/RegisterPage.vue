@@ -10,34 +10,31 @@
       <input type="password" id="password" v-model="form.password"/>
 
       <input type="submit" name="submit" />
-
-
     </form>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'RegisterPage',
-    data() {
-      return {
-        form: {
-          'username': '',
-          'email': '',
-          'password': ''
-        }
-      }
-    },
-    methods: {
-      onSubmit() {
-        let formToSend = {
-          username: this.form.username,
-          email: this.form.email,
-          password: this.form.password
-        }
-        this.$store.dispatch('auth/registerUser', formToSend)
-
+export default {
+  name: 'RegisterPage',
+  data () {
+    return {
+      form: {
+        'username': '',
+        'email': '',
+        'password': ''
       }
     }
+  },
+  methods: {
+    onSubmit () {
+      let formToSend = {
+        username: this.form.username,
+        email: this.form.email,
+        password: this.form.password
+      }
+      this.$store.dispatch('auth/registerUser', formToSend)
+    }
   }
+}
 </script>

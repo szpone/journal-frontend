@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul v-for="match in matches" v-if="matches">
+    <ul v-for="match in matches" v-if="matches" :key="match.id">
       <li>{{ match }}</li>
     </ul>
 

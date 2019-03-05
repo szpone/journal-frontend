@@ -1,5 +1,5 @@
-import { boardgamesService } from '@/services'
-import router from '@/router'
+import { boardgamesService } from 'services'
+import router from 'router'
 
 const state = {
   boardgames: [],

@@ -1,6 +1,6 @@
-import store from '@/store'
+import store from 'store'
 
-export function setup() {
+export function setup () {
   return function (request, next) {
     const token = store.getters['auth/token']
     request.headers.set('Authorization', `JWT ${token}`)

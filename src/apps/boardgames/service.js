@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import urls from '@/config/urls'
+import urls from 'config/urls'
 
 function getMatches () {
   return Vue.http.get(urls.boardgames.matchesList())

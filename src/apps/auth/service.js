@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import urls from '@/config/urls'
+import urls from 'config/urls'
 
 function login (username, password, rememberSession) {
   return Vue.http.post(urls.auth.login(), { username, password })
