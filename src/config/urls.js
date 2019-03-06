@@ -4,9 +4,9 @@ const API = 'api/'
 
 export default {
   auth: {
-    login: () => `${URL}auth/obtain_token/`,
-    verify: () => `${URL}auth/verify_token`,
-    refresh: () => `${URL}/auth/refresh_token`
+    login: () => `${URL}${API}auth/obtain_token/`,
+    verify: () => `${URL}${API}auth/verify_token`,
+    refresh: () => `${URL}${API}/auth/refresh_token`
   },
   boardgames: {
     boardgamesList: () => `${URL}${API}boardgames/`,
