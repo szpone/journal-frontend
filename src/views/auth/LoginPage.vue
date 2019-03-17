@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col-lg-12">
       <h2>Login</h2>
+
+      <div v-if="errors.length">
+        Please correct the following errors:
+        <div v-for="error in errors">
+          <p>{{ error }}</p>
+        </div>
+      </div>
+
       <b-form @submit.prevent="onSubmit">
         <div class="row">
           <div class="col-lg-4"></div>
@@ -39,6 +47,7 @@ export default {
   name: 'LoginPage',
   data () {
     return {
+      errors: [],
       form: {
         username: '',
         password: ''
@@ -58,6 +67,7 @@ export default {
             path: '/dashboard'
           })
         })
+        .catch(() => this.errors.push('Login or password are incorrect'))
     }
   },
   beforeMount () {
