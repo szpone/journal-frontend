@@ -5,7 +5,7 @@
 
       <div v-if="errors.length">
         Please correct the following errors:
-        <div v-for="error in errors">
+        <div v-for="error of errors">
           <p>{{ error }}</p>
         </div>
       </div>
@@ -60,14 +60,21 @@ export default {
     })
   },
   methods: {
-    onSubmit (form) {
-      this.$store.dispatch('auth/doLogin', form)
+    onSubmit () {
+      const formToSend = {
+        'username': this.form.username,
+        'password': this.form.password
+      }
+      this.$store.dispatch('auth/doLogin', formToSend)
         .then(() => {
           this.$router.push({
             path: '/dashboard'
           })
         })
-        .catch(() => this.errors.push('Login or password are incorrect'))
+        .catch((error) => {
+          this.errors = []
+          this.errors.push(error.bodyText)
+        })
     }
   },
   beforeMount () {

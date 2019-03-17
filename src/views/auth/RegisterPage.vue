@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col-lg-12">
       <h2>Registration</h2>
+
+      <div v-if="errors.length">
+        Please correct the following errors:
+        <div v-for="error of errors">
+          <p>{{ error }}</p>
+        </div>
+      </div>
+
       <b-form @submit.prevent="onSubmit">
         <div class="row">
           <div class="col-lg-4"></div>
@@ -73,8 +81,10 @@ export default {
         confirm_password: this.form.confirmPassword
       }
       this.$store.dispatch('auth/registerUser', formToSend)
-        .then(() => console.log('dupa'))
-        .catch((e) => console.log(e))
+        .catch((error) => {
+          this.errors = []
+          this.errors.push(error.bodyText)
+        })
     }
   }
 }

@@ -1,4 +1,4 @@
-const URL = '/'
+const URL = 'http://localhost:8000/'
 const API = 'api/'
 
 export default {
@@ -12,6 +12,6 @@ export default {
     matchesList: () => `${URL}${API}matches/`
   },
   users: {
-    users: () => `${URL}${API}users/`
+    users: () => `${URL}${API}users/`,
   }
 }
