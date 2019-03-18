@@ -7,8 +7,13 @@
     <div v-else>
       No matches!
     </div>
-
     <router-link to="/add-match" tag="button">Add match</router-link>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Dashboard</h1>
+      </div>
+    </div>
 
   </div>
 </template>
