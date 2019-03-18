@@ -55,8 +55,8 @@ const actions = {
     }
   },
 
-  registerUser ({ commit }, form) {
-    return authService.registerUser(form)
+  registerUser ({ commit }, { username, email, password, confirm_password }) {
+    return authService.registerUser(username, email, password, confirm_password)
       .then(() => {
         router.push({
           path: '/login'
