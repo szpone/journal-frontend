@@ -25,6 +25,7 @@ const actions = {
     return authService.login(username, password, rememberSession)
       .then(obj => {
         commit('loggedIn', obj)
+        return obj
       }).then(() => {
         const { nextUrl } = router.history.current.query
         router.push({ path: nextUrl || '/dashboard' }
@@ -39,12 +40,13 @@ const actions = {
     })
   },
   checkSession ({ commit }) {
-    if (!this.getters['auth/isChecking']) {
+    if (!this.getters['isChecking']) {
       commit('setChecking', true)
       return authService.checkSession()
         .then(user => {
           commit('loggedIn', user)
           commit('setChecking', false)
+          return user
         }, () => {
           router.push({
             path: '/login'

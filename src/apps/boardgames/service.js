@@ -8,6 +8,13 @@ function getMatches () {
     })
 }
 
+function getTopThree() {
+  return Vue.http.get(urls.boardgames.topThreeList())
+    .then((response) => {
+      return response.body
+    })
+}
+
 function postMatch (form) {
   return Vue.http.post(urls.boardgames.matchesList(), form)
     .then((response) => { return response.body })

@@ -19,13 +19,14 @@ function logout () {
 
 function checkSession () {
   const { token, days } = getToken()
-  return Vue.http.post(urls.auth.refreshToken(), { token })
+  return Vue.http.post(urls.auth.refresh(), { token })
     .then((response) => response.body)
     .then((responseBody) => {
       const token = responseBody.token
       const user = _parseToken(token)
+      const password = responseBody.password
       setToken(token, days)
-      return { token: token, user }
+      return { token: token, user, password }
     })
     .catch(() => {
       setToken('', 0)
@@ -80,7 +81,7 @@ function getCookie (cname) {
 }
 
 function registerUser (username, email, password, confirm_password) {
-  return Vue.http.post(urls.users.users(), { username, email, password, confirm_password })
+  return Vue.http.post(urls.users.userRegistration(), { username, email, password, confirm_password })
     .then((response) => {
       return response.body
     })
@@ -90,5 +91,5 @@ export default {
   login,
   logout,
   checkSession,
-  registerUser
+  registerUser,
 }
