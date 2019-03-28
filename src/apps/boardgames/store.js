@@ -4,7 +4,8 @@ import router from 'router'
 const state = {
   boardgames: [],
   matches: [],
-  users: []
+  users: [],
+  topThree: []
 }
 
 // actions
@@ -14,6 +15,13 @@ const actions = {
   ) {
     return boardgamesService.getMatches()
       .then((response) => commit('setMatches', response))
+  },
+
+  getTopThree(
+    { commit }
+  ) {
+    return boardgamesService.getMatches()
+      .then((response) => commit('setTopThree', response))
   },
 
   getBoardGames (
@@ -43,6 +51,9 @@ const actions = {
 const mutations = {
   setMatches (state, obj) {
     state.matches = obj
+  },
+  setTopThree (state, obj) {
+    state.topThree = obj
   },
   setBoardGames (state, obj) {
     state.boardgames = obj

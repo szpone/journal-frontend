@@ -15,13 +15,17 @@ Vue.config.productionTip = false
 // VueResource
 Vue.use(VueResource)
 
+
 // Bootstrap
 Vue.use(BootstrapVue)
 
+
 Vue.http.interceptors.push(function (request, next) {
-  // Read token from localStorage and set it as authorization header.
+
+
   // const token = localStorage.getItem('token')
   // request.headers.set('Authorization', `JWT ${token}`)
+
   next()
 })
 Vue.http.interceptors.push(interceptors.setup())
