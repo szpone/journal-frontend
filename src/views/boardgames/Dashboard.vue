@@ -15,7 +15,7 @@
           <div class="col-lg-3"></div>
           <div class="col-lg-6">
             <h3>Top 3 Games</h3>
-            <b-table striped :items="topThree"></b-table>
+            <b-table striped :items="topThree" :fields="fields"></b-table>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default {
         },
         {
           key: 'expansion',
-          label: 'expansion'
+          label: 'Expansion'
         }
       ]
     }
